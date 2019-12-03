@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QR Generator</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/qrcode.js"></script>
+</head>
+<body>
+<!----->
+<div class="page-header text-center">
+		<h1 style="color: cadetblue;">BARANGKU MANAGEMENT SYSTEM<br></h1>
+	</div>
+	<div id="header">
+			<div style="position:relative;top:+20px;left:0px;"><div style="position: absolute; width: 450px; left: -10000px;" id="___plusone_0"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" id="I0_1573894091698" name="I0_1573894091698" src="https://apis.google.com/u/0/se/0/_/+1/fastbutton?usegapi=1&amp;size=medium&amp;origin=https%3A%2F%2Fwebqr.com&amp;url=https%3A%2F%2Fwebqr.com%2F&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en.7kWSr24wXFc.O%2Fam%3DwQE%2Fd%3D1%2Fct%3Dzgms%2Frs%3DAGLTcCN-4ZptW5UzimRFZRBm6izu5h2ZaQ%2Fm%3D__features__#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh&amp;id=I0_1573894091698&amp;_gfid=I0_1573894091698&amp;parent=https%3A%2F%2Fwebqr.com&amp;pfname=&amp;rpctoken=29512523" data-gapiattached="true" width="100%" frameborder="0"></iframe></div><g:plusone size="medium" data-gapiscan="true" data-onload="true" data-gapistub="true"></g:plusone></div>
+			<ul>
+			<li><a href="index.html">Scan</a></li>
+			<li><a href="create.html">Create QR</a></li>
+			<li><a href="report.html">Report</a></li>
+			<li style="border: medium none;"><a href="logout.html">Logout</a></li>
+			</ul>
+	</div>
+
+<!----->
+<div class="container text-center">
+	<div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="navbar-form navbar-left" >
+                <h4 >Masukkan Kode Barang</h4>
+			</div>
+			<nav class="navbar navbar-light bg-light justify-content-between">
+					<form onsubmit="generate();return false;" class="form-inline">
+					  <input class="form-control mr-sm-2" type="text" id="qr" name="qr" placeholder="Input" aria-label="Input">
+					  <button class="btn btn-outline-success my-2 my-sm-0" type="submit"href="">Generate</button>
+					</form>
+				  </nav>
+		</div>
+	</div>
+</div>
+<br>
+
+<div id="qrResult" style="height: 150px;width: 150px">
+		
+<a type="button" id="" class="btn btn-primary" href="/qr.jpeg" download target="_qrResult">Download QR</a>	
+</div>
+
+
+<script type="text/javascript">
+var _href = $('#qrResult').attr("href");
+		$('#qrResult').attr("/uploads", _href + '/x.pdf')
+		$('#qrResult').attr("tai", "")
+		$('#qrResult').attr("target", "_blank")
+</script>
+
+<script type="text/javascript">
+	var qrcode=new QRCode(document.getElementById('qrResult'),{
+		width:150,
+		height:150
+	});
+
+function generate(){
+	var message=document.getElementById('qr');
+	if(!message.value){
+		alert("Input a text");
+		message.focus();
+		return;
+	}
+	qrcode.makeCode(message.value);
+}
+
+</script>
+</body>
+</html>
